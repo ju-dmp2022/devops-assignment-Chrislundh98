@@ -11,39 +11,19 @@ class base_class():
     def teardown_calc(cls):
         "runs at end of test"
 
-# class TestCalc():
-#     base_class.setup_calc()
-
-#     calculator = CalculatorHelper()
-#     def test_add(self):
-#         value = self.calculator.add(1,1)
-#         assert_that(value).is_equal_to(2)
-    
-#     def test_sub(self):
-#         value = self.calculator.subtract(3,2)
-#         assert_that(value).is_equal_to(1)
-    
-#     def test_mul(self):
-#         value = self.calculator.multiply(2,3)
-#         assert_that(value).is_equal_to(6)
-
-#     def test_div(self):
-#         value = self.calculator.divide(6,2)
-#         assert_that(value).is_equal_to(3)
-
-#     base_class.teardown_calc()
-    
-@pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
+@pytest.mark.parametrize("n,expected_add,expected_mul,expected_sub,expected_div", [
+    (1, 2, 1, 0, 1),
+    (3, 4, 3, 2, 3)
+])
 class TestCalc2():
-    def test_add(self, n, expected):
-        assert n + 1 == expected
+    def test_add(self, n, expected_add):
+        assert n + 1 == expected_add
 
-    def test_mul(self, n, expected):
-        assert (n * 1) + 1 == expected
-    
-    def test_sub(self, n, expected):
-        assert (n - 1) + 1 == expected
+    def test_mul(self, n, expected_mul):
+        assert (n * 1) == expected_mul
 
-    def test_div(self, n, expected):
-        assert (n / 1) + 1 == expected
+    def test_sub(self, n, expected_sub):
+        assert n - 1 == expected_sub
 
+    def test_div(self, n, expected_div):
+        assert n / 1 == expected_div
