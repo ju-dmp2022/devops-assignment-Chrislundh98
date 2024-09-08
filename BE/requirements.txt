@@ -1,0 +1,11 @@
+fastapi
+pydantic
+uvicorn
+numpy
+argparse
+opencensus-ext-azure
+pytest
+pytest-cov
+assertpy
+requests
+openapi-python-client
