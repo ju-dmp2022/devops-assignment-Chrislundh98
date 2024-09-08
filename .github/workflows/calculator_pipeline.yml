@@ -21,10 +21,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r BE/requirements.txt
 
-      - name: Start the REST API
-        run: |
-          python BE/calculator.py --rest &
-
       - name: Run Unit and API tests
         run: |
           export PYTHONPATH=.
@@ -42,7 +38,8 @@ jobs:
           docker build -t judevops.azurecr.io/christoffer_lundh-calculator ./BE
           docker push judevops.azurecr.io/christoffer_lundh-calculator
 
-      - name: Generate test report
-        uses: mikepenz/action-junit-report@v3
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
         with:
-          report_paths: '**/report.xml'
+          name: test-report
+          path: report.xml
