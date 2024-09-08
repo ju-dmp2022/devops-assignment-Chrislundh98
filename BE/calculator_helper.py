@@ -44,10 +44,7 @@ class CalculatorHelper():
         return result
 
     def divide(self, a, b):
-        if b != 0:
-            result = a / b
-        else:
-            return "cannot divide by 0" # exchange later with logger.error to catch exception
+        result = a / b
         return result
 
     def register_user(self, username, password):
