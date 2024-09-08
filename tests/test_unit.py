@@ -1,29 +1,32 @@
-from BE.calculator_helper import CalculatorHelper
-from assertpy import assert_that
 import pytest
+from BE.calculator_helper import CalculatorHelper
 
-class base_class():
-    @classmethod
-    def setup_calc(cls):
-        "runs at start"
+class TestCalc:
+    
+    def setup_method(self):
+        """Setup before each test"""
+        self.calculator = CalculatorHelper()
 
-    @classmethod
-    def teardown_calc(cls):
-        "runs at end of test"
+    def teardown_method(self):
+        """Teardown after each test"""
+        self.calculator = None
 
-@pytest.mark.parametrize("n,expected_add,expected_mul,expected_sub,expected_div", [
-    (1, 2, 1, 0, 1),
-    (3, 4, 3, 2, 3)
-])
-class TestCalc2():
-    def test_add(self, n, expected_add):
-        assert n + 1 == expected_add
+    def test_add(self):
+        result = self.calculator.add(1, 1)
+        assert result == 2, "Add method failed"
 
-    def test_mul(self, n, expected_mul):
-        assert (n * 1) == expected_mul
+    def test_subtract(self):
+        result = self.calculator.subtract(3, 2)
+        assert result == 1, "Subtract method failed"
 
-    def test_sub(self, n, expected_sub):
-        assert n - 1 == expected_sub
+    def test_multiply(self):
+        result = self.calculator.multiply(2, 3)
+        assert result == 6, "Multiply method failed"
 
-    def test_div(self, n, expected_div):
-        assert n / 1 == expected_div
+    def test_divide(self):
+        result = self.calculator.divide(6, 2)
+        assert result == 3, "Divide method failed"
+
+    def test_divide_by_zero(self):
+        with pytest.raises(ZeroDivisionError):
+            self.calculator.divide(1, 0)
