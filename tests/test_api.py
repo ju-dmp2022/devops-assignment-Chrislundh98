@@ -2,7 +2,7 @@ import requests
 from calculator_client.client import Client
 from calculator_client.api.actions import calculate
 from calculator_client.models.calculation import Calculation
-from calculator_client.models.operations import Operations
+from calculator_client.models.operations import Opertions
 from calculator_client.models import ResultResponse
 
 class BaseTest:
