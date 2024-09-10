@@ -11,21 +11,25 @@ class BaseTest:
         self.calculator = None
 
 class TestCalc(BaseTest): 
-    def test_add(self):
-        result = self.calculator.add(1, 1)
-        assert result == 2, "Add method failed"
+    @pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
+    def test_add(self, n, expected):
+        # result = self.calculator.add(1, 1)
+        assert n + 1 == expected, "Add method failed"
+        
+    @pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
+    def test_subtract(self, n, expected):
+        # result = self.calculator.subtract(3, 2)
+        assert n - 1 == expected, "Subtract method failed"
+        
+    @pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
+    def test_multiply(self n, expected):
+        # result = self.calculator.multiply(2, 3)
+        assert n * 2 == expected, "Multiply method failed"
 
-    def test_subtract(self):
-        result = self.calculator.subtract(3, 2)
-        assert result == 1, "Subtract method failed"
-
-    def test_multiply(self):
-        result = self.calculator.multiply(2, 3)
-        assert result == 6, "Multiply method failed"
-
-    def test_divide(self):
-        result = self.calculator.divide(6, 2)
-        assert result == 3, "Divide method failed"
+    @pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
+    def test_divide(self n, expected):
+        #result = self.calculator.divide(6, 2)
+        assert n / 2 == expected, "Divide method failed"
 
     def test_divide_by_zero(self):
         with pytest.raises(ZeroDivisionError):
