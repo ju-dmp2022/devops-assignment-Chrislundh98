@@ -22,12 +22,12 @@ class TestCalc(BaseTest):
         assert n - 1 == expected, "Subtract method failed"
         
     @pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
-    def test_multiply(self n, expected):
+    def test_multiply(self, n, expected):
         # result = self.calculator.multiply(2, 3)
         assert n * 2 == expected, "Multiply method failed"
 
     @pytest.mark.parametrize("n,expected", [(1, 2), (3, 4)])
-    def test_divide(self n, expected):
+    def test_divide(self, n, expected):
         #result = self.calculator.divide(6, 2)
         assert n / 2 == expected, "Divide method failed"
 
