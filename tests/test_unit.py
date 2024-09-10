@@ -1,8 +1,7 @@
 import pytest
 from BE.calculator_helper import CalculatorHelper
 
-class TestCalc:
-    
+class BaseTest:
     def setup_method(self):
         """Setup before each test"""
         self.calculator = CalculatorHelper()
@@ -11,6 +10,7 @@ class TestCalc:
         """Teardown after each test"""
         self.calculator = None
 
+class TestCalc(BaseTest): 
     def test_add(self):
         result = self.calculator.add(1, 1)
         assert result == 2, "Add method failed"
