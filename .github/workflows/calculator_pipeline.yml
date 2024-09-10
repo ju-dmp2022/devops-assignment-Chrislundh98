@@ -28,8 +28,8 @@ jobs:
       - name: Run Unit and API tests
         run: |
           export PYTHONPATH=.
-          pytest --junit-xml=report.xml
-          
+          pytest --junit-xml=report.xml -v
+
       - name: Upload test results
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
