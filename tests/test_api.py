@@ -19,7 +19,7 @@ class TestAPI(BaseTest):
             "operand1": 1,
             "operand2": 2
         }
-        response = requests.post(url, json=payload)
+        response = requests.post(self.url, json=payload)
 
     def test_calc_sub(self):
         payload = {
@@ -27,7 +27,7 @@ class TestAPI(BaseTest):
             "operand1": 1,
             "operand2": 2
         }
-        response = requests.post(url, json=payload)
+        response = requests.post(self.url, json=payload)
 
     def test_calc_mul(self):
         payload = {
@@ -35,7 +35,7 @@ class TestAPI(BaseTest):
             "operand1": 3,
             "operand2": 6
         }
-        response = requests.post(url, json=payload)
+        response = requests.post(self.url, json=payload)
 
     def test_calc_div(self):
         payload = {
@@ -43,7 +43,7 @@ class TestAPI(BaseTest):
             "operand1": 6,
             "operand2": 2
         }
-        response = requests.post(url, json=payload)
+        response = requests.post(self.url, json=payload)
 
     def test_gen_calc_client(self):
         client = Client(base_url="http://127.0.0.1:5000")
