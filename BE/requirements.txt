@@ -9,3 +9,7 @@ pytest-cov
 assertpy
 requests
 openapi-python-client
+munch
+selenium
+webdriver-manager
+assertpy
