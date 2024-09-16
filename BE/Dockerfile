@@ -6,5 +6,7 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python", "calculator.py"]
+EXPOSE 5000
+
+ENTRYPOINT ["python", "calculator.py", "--rest"]
 
