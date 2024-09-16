@@ -13,7 +13,7 @@ class WebBase:
             Initiatiung some common parameters
         """
         cls.app_url = 'http://host.docker.internal:8080'
-        cls.username = "test_user6" # init new user for test
+        cls.username = "test_user7" # init new user for test
 
     def setup_method(self):
         """ Setup to run before every test
