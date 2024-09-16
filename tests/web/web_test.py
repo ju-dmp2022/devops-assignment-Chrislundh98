@@ -12,13 +12,13 @@ class Test1(WebBase):
     def test_register_user(self):
         self.login_page.register_button()
         self.register_page.register(self.username, 'Testpass', 'Testpass')
-        error_message = self.register_page.get_error_msg()
+        # error_message = self.register_page.get_error_msg()
 
-        if 'User already exists!' in error_message:
-            assert True
-        else:
-            time.sleep(5)
-            assert self.calc_page.elements.username.text == self.username
+        # if 'User already exists!' in error_message:
+        #     assert True
+        # else:
+        time.sleep(5)
+        assert self.calc_page.elements.username.text == self.username
 
 
 class Test2(WebBase):
